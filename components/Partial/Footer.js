@@ -3,21 +3,21 @@ import { FaFacebookF, FaInstagram, FaPinterest } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div className="grid md:grid-cols-4 grid-cols-2 md:px-16 px-5 py-10 footer-menu">
+    <div className="grid md:grid-cols-4 grid-cols-2 md:px-16 px-5 py-10 footer-menu gap-y-10">
       <div>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/about">
               <a>About</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/contact">
               <a>Contact Us</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/privacy-policy">
               <a>Privacy Policy</a>
             </Link>
           </li>
@@ -27,17 +27,17 @@ function Footer() {
       <div>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/cookies">
               <a>Cookie Policy</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/terms-and-conditions">
               <a>Terms and Conditions</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/partnership">
               <a>Partnership</a>
             </Link>
           </li>

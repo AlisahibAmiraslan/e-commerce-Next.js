@@ -1,9 +1,9 @@
-import React from "react";
-
-function About() {
+function Cookies() {
   return (
     <div className="w-full md:px-16 px-5 py-10">
-      <h2 className="text-center mb-10 font-bold text-xl md:text-5xl">About</h2>
+      <h2 className="text-center mb-10 font-bold text-xl md:text-5xl">
+        Cookies Policy
+      </h2>
       <article>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
@@ -81,4 +81,4 @@ function About() {
   );
 }
 
-export default About;
+export default Cookies;
