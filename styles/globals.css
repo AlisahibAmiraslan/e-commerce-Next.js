@@ -76,3 +76,21 @@
   background-color: #fff;
   z-index: 999;
 }
+
+.footer-menu ul li {
+  padding: 7px 0;
+}
+
+.footer-menu ul li a {
+  padding: 5px 0;
+  width: 100%;
+  display: block;
+}
+
+.footer-menu ul li:hover a {
+  color: #576e76;
+}
+
+.footer-menu .social-icons ul li a {
+  margin-right: 15px;
+}
