@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <>
-      <nav className="w-full md:px-16 px-5 flex justify-between py-5 bg-white z-[100]">
+      <nav className="w-full md:px-16 px-5 flex justify-between md:py-7 py-5 bg-white z-[100]">
         <div className="logo">Logo</div>
         {/* big sizes */}
         <div className="menu lg:flex hidden">
