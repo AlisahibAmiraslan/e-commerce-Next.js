@@ -5,7 +5,7 @@ const data = [
     title: "New Season",
   },
   {
-    id: "3",
+    id: "2",
     img: "Images/top-ten-2.jpg",
     title: "New Season",
   },
