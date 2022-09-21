@@ -98,3 +98,7 @@
 .footer-menu .social-icons ul li a {
   margin-right: 15px;
 }
+
+a {
+  display: block;
+}

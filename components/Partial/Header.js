@@ -26,7 +26,7 @@ function Header() {
         <div className="menu lg:flex hidden">
           <ul className="menu-lists">
             <li>
-              <Link href="/">
+              <Link href="/category">
                 <a>New Season</a>
               </Link>
             </li>
