@@ -4,31 +4,42 @@ import "swiper/css";
 import "swiper/css/navigation";
 import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
-import data from "../data/Data";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 function TopTen() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+
   return (
     <>
-      <div className="w-full md:px-16 px-5 my-10 md:block hidden">
+      <div className="w-full md:max-w-7xl m-auto md:px-0 px-5 my-20 md:block hidden top-ten">
         <Swiper
           loop={true}
           slidesPerView={4}
-          spaceBetween={3}
+          spaceBetween={10}
           className="flex justify-center"
         >
           {data.map((item, index) => {
             return (
               <>
                 <SwiperSlide key={index}>
-                  <Link href="/">
+                  <Link href={"/product/" + item.id}>
                     <a>
                       <div className="banner-top-content">
                         <div className="banner-top-img">
-                          <img src={item.img} alt={item.title} />
+                          <img src={item.image} alt={item.title} />
                         </div>
-                        <div className="banner-top-title text-center mt-2">
-                          <p>{item.title}</p>
+                        <div className="banner-top-title text-center mt-4">
+                          <p>{item.title.substring(0, 35)}...</p>
+                          <span className="font-extrabold mt-3 block">
+                            {item.price}$
+                          </span>
                         </div>
                       </div>
                     </a>
@@ -40,7 +51,7 @@ function TopTen() {
         </Swiper>
       </div>
 
-      <div className="w-full md:px-16 px-5 my-10 md:hidden block">
+      <div className="w-full px-5 my-10 md:hidden block top-ten-mobil">
         <Swiper
           loop={true}
           centeredSlides={true}
@@ -56,10 +67,13 @@ function TopTen() {
                     <a>
                       <div className="banner-top-content">
                         <div className="banner-top-img">
-                          <img src={item.img} alt={item.title} />
+                          <img src={item.image} alt={item.title} />
                         </div>
-                        <div className="banner-top-title text-center mt-2">
-                          <p>{item.title}</p>
+                        <div className="banner-top-title text-center mt-4">
+                          <p>{item.title.substring(0, 15)}...</p>
+                          <span className="font-extrabold mt-2 block">
+                            {item.price}$
+                          </span>
                         </div>
                       </div>
                     </a>

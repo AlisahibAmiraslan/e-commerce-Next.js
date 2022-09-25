@@ -14,7 +14,7 @@ function BannerTop() {
   }, []);
 
   return (
-    <div className="w-full md:px-16 px-5">
+    <div className="w-full md:max-w-7xl m-auto md:px-0 px-5">
       <div className="banner-top-image w-full md:block hidden">
         <Link href={"/category/" + data[3]}>
           <a>

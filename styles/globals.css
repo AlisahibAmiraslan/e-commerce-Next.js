@@ -112,12 +112,29 @@ a {
   height: 350px;
 }
 
+.top-ten {
+  height: 500px;
+}
+
+.top-ten img {
+  width: 100%;
+  height: 450px;
+}
+
 @media only screen and (max-width: 450px) {
   .category-image {
     height: 200px;
   }
 
   .category-image img {
+    width: 100%;
+    height: 200px;
+  }
+  .top-ten-mobil {
+    height: 250px;
+  }
+
+  .top-ten-mobil img {
     width: 100%;
     height: 200px;
   }

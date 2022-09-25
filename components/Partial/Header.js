@@ -24,7 +24,7 @@ function Header() {
 
   return (
     <>
-      <nav className="w-full md:px-16 px-5 flex justify-between md:py-7 py-5 bg-white z-[100]">
+      <nav className="w-full md:max-w-7xl md:px-0 px-5 m-auto flex justify-between md:py-7 py-5 bg-white z-[100]">
         <div className="logo">
           <Link href="/">
             <a>
@@ -35,27 +35,6 @@ function Header() {
         {/* big sizes */}
         <div className="menu lg:flex hidden">
           <ul className="menu-lists">
-            {/* <li>
-              <Link href="/category">
-                <a>New Season</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Men's Clothing</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Women's Clothing</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Electronics</a>
-              </Link>
-            </li> */}
-
             {data.map((category, index) => {
               return (
                 <li key={index}>
@@ -136,27 +115,6 @@ function Header() {
       {openMenu ? (
         <div className="mobil-menu md:hidden block px-5">
           <ul>
-            {/* <li>
-              <Link href="/">
-                <a>AnaSayfa</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Hakkımızda</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Galery</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Contact</a>
-              </Link>
-            </li> */}
-
             {data.map((category, index) => {
               return (
                 <li key={index}>

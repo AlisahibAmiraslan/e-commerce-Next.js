@@ -12,7 +12,7 @@ function BannerMiddle() {
   }, []);
 
   return (
-    <div className="w-full md:px-16 px-5 mb-10">
+    <div className="w-full md:max-w-7xl m-auto md:px-0 px-5 mb-10">
       <div className="banner-middle-image w-full md:block hidden">
         <Link href={"/category/" + data[0]}>
           <a>
