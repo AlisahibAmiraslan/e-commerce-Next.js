@@ -121,6 +121,43 @@ a {
   height: 450px;
 }
 
+/* loading */
+
+.progress {
+  position: relative;
+  height: 5px;
+  width: 100%;
+}
+.progress .color {
+  position: absolute;
+  background-color: black;
+  width: 0px;
+  height: 3px;
+  animation: progres 4s infinite ease-in-out;
+}
+@keyframes progres {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  75% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loading-circle {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media only screen and (max-width: 450px) {
   .category-image {
     height: 200px;
@@ -137,5 +174,9 @@ a {
   .top-ten-mobil img {
     width: 100%;
     height: 200px;
+  }
+  .loading-circle {
+    opacity: 0;
+    visibility: hidden;
   }
 }
