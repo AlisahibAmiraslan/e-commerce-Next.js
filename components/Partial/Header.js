@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 function Header() {
@@ -12,20 +12,30 @@ function Header() {
     setOpenMenu(false);
   }
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
+
   return (
     <>
       <nav className="w-full md:px-16 px-5 flex justify-between md:py-7 py-5 bg-white z-[100]">
         <div className="logo">
           <Link href="/">
             <a>
-              <img src="Images/logo.png" alt="" />
+              <img src="./Images/logo.png" alt="logo" />
             </a>
           </Link>
         </div>
         {/* big sizes */}
         <div className="menu lg:flex hidden">
           <ul className="menu-lists">
-            <li>
+            {/* <li>
               <Link href="/category">
                 <a>New Season</a>
               </Link>
@@ -44,7 +54,17 @@ function Header() {
               <Link href="/">
                 <a>Electronics</a>
               </Link>
-            </li>
+            </li> */}
+
+            {data.map((category, index) => {
+              return (
+                <li key={index}>
+                  <Link href={"/category/" + category}>
+                    <a>{category}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -116,7 +136,7 @@ function Header() {
       {openMenu ? (
         <div className="mobil-menu md:hidden block px-5">
           <ul>
-            <li>
+            {/* <li>
               <Link href="/">
                 <a>AnaSayfa</a>
               </Link>
@@ -135,7 +155,17 @@ function Header() {
               <Link href="/">
                 <a>Contact</a>
               </Link>
-            </li>
+            </li> */}
+
+            {data.map((category, index) => {
+              return (
+                <li key={index}>
+                  <Link href={"/category/" + category}>
+                    <a className="uppercase text-sm">{category}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : (
