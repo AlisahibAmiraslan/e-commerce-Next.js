@@ -5,6 +5,7 @@ import TopTen from "./TopTen";
 import BannerMiddle from "./BannerMiddle";
 import CategoryProducts from "./Category/CategoryProducts";
 import ProductDetails from "./Product/ProductDetails";
+import BestSeller from "./BestSeller";
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   Footer,
   CategoryProducts,
   ProductDetails,
+  BestSeller,
 };

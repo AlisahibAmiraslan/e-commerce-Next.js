@@ -7,11 +7,11 @@ SwiperCore.use([Navigation]);
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-function TopTen() {
+function BestSeller() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
+    fetch("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -28,7 +28,7 @@ function TopTen() {
           {data.map((item, index) => {
             return (
               <>
-                <SwiperSlide key={index}>
+                <SwiperSlide key={item.id}>
                   <Link href={"/product/" + item.id}>
                     <a>
                       <div className="banner-top-content">
@@ -62,7 +62,7 @@ function TopTen() {
           {data.map((item, index) => {
             return (
               <>
-                <SwiperSlide key={index}>
+                <SwiperSlide key={item.id}>
                   <Link href={"/product/" + item.id}>
                     <a>
                       <div className="banner-top-content">
@@ -70,7 +70,7 @@ function TopTen() {
                           <img src={item.image} alt={item.title} />
                         </div>
                         <div className="banner-top-title text-center mt-4">
-                          <p>{item.title.substring(0, 15)}...</p>
+                          <p>{item.title.substring(0, 10)}...</p>
                           <span className="font-extrabold mt-2 block">
                             {item.price}$
                           </span>
@@ -88,4 +88,4 @@ function TopTen() {
   );
 }
 
-export default TopTen;
+export default BestSeller;
