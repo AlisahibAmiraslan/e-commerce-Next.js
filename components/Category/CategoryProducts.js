@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import LazyLoad from "react-lazyload";
+import Breadcrumb from "../Breadcrumb";
 
 function CategoryProducts({ Categories }) {
   const Router = useRouter();
@@ -9,6 +10,7 @@ function CategoryProducts({ Categories }) {
 
   return (
     <section className="bg-white md:max-w-7xl w-full m-auto md:py-10 py-5">
+      <Breadcrumb />
       <div className="w-full text-center">
         <h1 className="md:text-5xl text-3xl uppercase text-gray-600 underline">
           {TitleName}
