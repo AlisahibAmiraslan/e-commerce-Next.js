@@ -9,6 +9,11 @@ function ProductDetails({ Product }) {
   //There isn't any stock in APİ, and for this react I used rate value
   const StockQuantity = Product.rating.rate;
 
+  const inputChangedHandler = (event) => {
+    const updatedKeyword = event.target.value;
+    // if wwe don't use this we see warning
+  };
+
   return (
     <>
       <Breadcrumb title={ProTitle} proCat={ProCat} />
@@ -45,6 +50,7 @@ function ProductDetails({ Product }) {
                   className="mx-2 text-center w-12"
                   type="text"
                   value={Quantity}
+                  onChange={(event) => inputChangedHandler(event)}
                 />
                 <svg
                   className="fill-current text-gray-400 w-4 cursor-pointer"
