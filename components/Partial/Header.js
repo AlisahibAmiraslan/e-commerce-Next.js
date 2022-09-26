@@ -19,6 +19,7 @@ function Header() {
   Router.events.on("routeChangeComplete", () => {
     setProgress(false);
     setProgressLoading(false);
+    setOpenMenu(false);
   });
 
   function openMobilMenu() {
