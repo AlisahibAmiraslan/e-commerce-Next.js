@@ -1,11 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Breadcrumb from "../Breadcrumb";
+import { toast } from "react-toastify";
 
 function ProductDetails({ Product }) {
   const ProTitle = Product.title;
   const ProCat = Product.category;
   const [Quantity, setQuantity] = useState(1);
-  const StockQuantity = Product.rating.count;
+  //There isn't any stock in APİ, and for this react I used rate value
+  const StockQuantity = Product.rating.rate;
 
   return (
     <>
@@ -48,8 +50,8 @@ function ProductDetails({ Product }) {
                   className="fill-current text-gray-400 w-4 cursor-pointer"
                   viewBox="0 0 448 512"
                   onClick={() => {
-                    if (Quantity >= StockQuantity) {
-                      alert("Stokta Ürün Yoxdur");
+                    if (Quantity > StockQuantity) {
+                      toast("No More Product");
                     } else {
                       setQuantity(Quantity + 1);
                     }
