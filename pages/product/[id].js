@@ -1,4 +1,4 @@
-import { ProductDetails } from "../../components";
+import { ProductDetails } from "../../components/index";
 
 function Products({ products }) {
   return <ProductDetails Product={products} />;
