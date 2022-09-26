@@ -148,7 +148,7 @@ function Header() {
         {/* for mobil */}
 
         {openMenu ? (
-          <div className="mobil-menu md:hidden block px-5">
+          <div className="mobil-menu md:hidden block">
             <ul>
               {data.map((category, index) => {
                 return (

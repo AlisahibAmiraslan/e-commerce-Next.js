@@ -5,7 +5,6 @@ import Breadcrumb from "../Breadcrumb";
 
 function CategoryProducts({ Categories }) {
   const Router = useRouter();
-
   const TitleName = Router.query.id;
 
   return (

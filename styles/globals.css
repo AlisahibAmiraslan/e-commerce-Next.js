@@ -64,6 +64,11 @@
   max-width: 100%;
 }
 
+.mobil-menu ul {
+  background-color: #ecf0f1;
+  padding: 20px;
+}
+
 .mobil-menu ul li a,
 .mobil-menu ul li {
   display: block;
@@ -71,7 +76,7 @@
 }
 
 .mobil-menu ul li a {
-  padding: 10px 0;
+  padding: 20px 0;
   font-size: 18px;
   color: #405861;
 }
