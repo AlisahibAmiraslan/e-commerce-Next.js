@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import ClipLoader from "react-spinners/ClipLoader";
+import Logo from "./../../public/Images/logo.png";
+import Image from "next/image";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -61,7 +63,7 @@ function Header() {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="./Images/logo.png" alt="logo" />
+                <Image src={Logo} alt="logo" />
               </a>
             </Link>
           </div>
