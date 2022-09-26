@@ -1,8 +1,11 @@
+import { useState } from "react";
 import Breadcrumb from "../Breadcrumb";
 
 function ProductDetails({ Product }) {
   const ProTitle = Product.title;
   const ProCat = Product.category;
+  const [Quantity, setQuantity] = useState(1);
+  const StockQuantity = Product.rating.count;
 
   return (
     <>
@@ -21,10 +24,46 @@ function ProductDetails({ Product }) {
               <h4 className="font-bold mb-5">Product Details:</h4>
               <p>{Product.description}</p>
             </div>
-            <div className="add-to-cart mt-10">
-              <button className="bg-gray-800 px-5 py-2 text-white">
-                Add To Cart
-              </button>
+            <div className="add-to-cart mt-10 flex justify-around w-full items-center">
+              <div className="flex p-3 border mr-3">
+                <svg
+                  className="fill-current text-gray-400 w-4 cursor-pointer"
+                  viewBox="0 0 448 512"
+                  onClick={() => {
+                    if (Quantity <= 1) {
+                      setQuantity(1);
+                    } else {
+                      setQuantity(Quantity - 1);
+                    }
+                  }}
+                >
+                  <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                </svg>
+                <input
+                  className="mx-2 text-center w-12"
+                  type="text"
+                  value={Quantity}
+                />
+                <svg
+                  className="fill-current text-gray-400 w-4 cursor-pointer"
+                  viewBox="0 0 448 512"
+                  onClick={() => {
+                    if (Quantity >= StockQuantity) {
+                      alert("Stokta Ürün Yoxdur");
+                    } else {
+                      setQuantity(Quantity + 1);
+                    }
+                  }}
+                >
+                  <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                </svg>
+              </div>
+
+              <div>
+                <button className="bg-gray-800 px-5 py-2 text-white hover:bg-gray-600">
+                  Add To Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
