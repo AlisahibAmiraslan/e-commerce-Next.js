@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import Breadcrumb from "../Breadcrumb";
 import { toast } from "react-toastify";
 import { ProductContext } from "../../context/ProductContext";
+import { useRouter } from "next/router";
 
 function ProductDetails({ Product }) {
+  const Router = useRouter();
   const { msg, setMsg } = useContext(ProductContext);
 
   const inputChangedHandler = (event) => {
@@ -81,6 +83,7 @@ function ProductDetails({ Product }) {
                   className="bg-gray-800 px-5 py-2 text-white hover:bg-gray-600"
                   onClick={() => {
                     SebetEkle(Product.id);
+                    Router.push("/cart");
                   }}
                 >
                   Add To Cart
