@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Breadcrumb from "../Breadcrumb";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { ProductContext } from "../../context/ProductContext";
 
 function ProductDetails({ Product }) {
+  const { msg, setMsg } = useContext(ProductContext);
+
+  // ************************
   const Router = useRouter();
 
   const inputChangedHandler = (event) => {
@@ -20,15 +24,15 @@ function ProductDetails({ Product }) {
 
   const [Adet, setAdet] = useState(1);
 
-  const [sebet, setSebet] = useState(0);
+  const [sebet, setSebet] = useState("");
 
   function SebetEkle(value) {
     fetch("https://fakestoreapi.com/products/" + value)
       .then((res) => res.json())
-      .then((data) => setSebet(data));
+      .then((data) => setMsg([...msg, data]));
   }
 
-  console.log(sebet);
+  console.log(msg);
 
   return (
     <>
