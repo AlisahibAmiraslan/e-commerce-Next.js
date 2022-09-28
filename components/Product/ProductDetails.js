@@ -1,15 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Breadcrumb from "../Breadcrumb";
 import { toast } from "react-toastify";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import { ProductContext } from "../../context/ProductContext";
 
 function ProductDetails({ Product }) {
   const { msg, setMsg } = useContext(ProductContext);
-
-  // ************************
-  const Router = useRouter();
 
   const inputChangedHandler = (event) => {
     const updatedKeyword = event.target.value;
@@ -22,17 +17,11 @@ function ProductDetails({ Product }) {
   //There isn't any stock in APİ, and for this react I used rate value
   const StockQuantity = Product.rating.rate;
 
-  const [Adet, setAdet] = useState(1);
-
-  const [sebet, setSebet] = useState("");
-
   function SebetEkle(value) {
     fetch("https://fakestoreapi.com/products/" + value)
       .then((res) => res.json())
       .then((data) => setMsg([...msg, data]));
   }
-
-  console.log(msg);
 
   return (
     <>

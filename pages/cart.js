@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
+import React, { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 
 function Cart() {
   const { msg, setMsg } = useContext(ProductContext);
-  console.log(msg);
+
   return (
     <>
       <div>
