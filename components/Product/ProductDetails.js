@@ -11,7 +11,7 @@ function ProductDetails({ Product }) {
 
   const inputChangedHandler = (event) => {
     const updatedKeyword = event.target.value;
-    // if wwe don't use this we see warning
+    // if we don't use this we see warning
   };
 
   return (
