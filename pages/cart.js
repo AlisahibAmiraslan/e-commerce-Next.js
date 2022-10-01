@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { ProductContext, Store } from "../context/ProductContext";
+import dynamic from "next/dynamic";
 
 function Cart() {
   // const { msg, setMsg } = useContext(ProductContext);
@@ -20,6 +21,10 @@ function Cart() {
 
   const removeItem = (item) => {
     dispatch({ type: "CART_REMOVE_ITEM", payload: item });
+  };
+
+  const removeAllItem = (allItem) => {
+    dispatch({ type: "CART_CLEAR_ITEMS" });
   };
 
   return (
@@ -84,7 +89,7 @@ function Cart() {
               onClick={() => {
                 toast("Purchased");
                 setTimeout(() => {
-                  Router.reload(window.location.pathname);
+                  removeAllItem(cartItems);
                 }, 1500);
               }}
             >
@@ -97,4 +102,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });
