@@ -30,10 +30,10 @@ function Cart() {
             <>
               <div key={index} className="w-full md:max-w-7xl mx-auto">
                 <div className="w-full flex border mt-5 items-center md:flex-row flex-col">
-                  <div className="cart-image mr-14 flex justify-center items-center ml-3">
+                  <div className="cart-image md:mr-14 mr-0 md:my-0 my-10 flex justify-center items-center ml-3">
                     <img src={item.image} alt={item.title} />
                   </div>
-                  <div>
+                  <div className="md:pl-0 pl-5">
                     <h1>
                       <span className="mr-3 font-bold">Product Name:</span>
                       {item.title}
@@ -73,7 +73,7 @@ function Cart() {
       {cartItems.length > 0 && (
         <div className="mt-5 md:max-w-7xl w-full mx-auto">
           <button
-            className="button-buy bg-green-500 hover:bg-green-300 text-white px-6 py-2"
+            className="button-buy bg-green-500 hover:bg-green-300 text-white px-6 md:py-2 py-4 md:w-24 w-full"
             onClick={() => {
               toast("Purchased");
               setTimeout(() => {
