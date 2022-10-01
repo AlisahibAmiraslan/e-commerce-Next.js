@@ -29,8 +29,9 @@ function ProductDetails({ Product }) {
 
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.id === Product.id);
-    setQuantity(existItem ? existItem.quantity + 1 : 1);
+    setQuantity(existItem ? existItem.Quantity + 1 : 1);
     dispatch({ type: "CART_ADD_ITEM", payload: { ...Product, Quantity } });
+    setQuantity(1);
   };
 
   return (
