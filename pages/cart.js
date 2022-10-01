@@ -50,7 +50,7 @@ function Cart() {
                       className="text-red-600 mt-3"
                       onClick={() => removeItem(item)}
                     >
-                      Delete
+                      Remove
                     </button>
                   </div>
                 </div>
