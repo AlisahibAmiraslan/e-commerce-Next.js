@@ -9,10 +9,14 @@ function Cart() {
 
   const Router = useRouter();
 
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
+
+  const removeItem = (item) => {
+    dispatch({ type: "CART_REMOVE_ITEM", payload: item });
+  };
 
   return (
     <>
@@ -38,6 +42,13 @@ function Cart() {
                       <span className="mr-3 font-bold">Price:</span>
                       {item.price}$
                     </p>
+
+                    <button
+                      className="text-red-600 mt-3"
+                      onClick={() => removeItem(item)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>
