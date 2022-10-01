@@ -89,7 +89,10 @@ function ProductDetails({ Product }) {
               <div>
                 <button
                   className="bg-gray-800 px-5 py-2 text-white hover:bg-gray-600"
-                  onClick={addToCartHandler}
+                  onClick={() => {
+                    addToCartHandler();
+                    toast("Added to Bag");
+                  }}
                 >
                   Add To Cart
                 </button>

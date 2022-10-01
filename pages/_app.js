@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <StoreProvider>
         <Header />
-        <ToastContainer />
+        <ToastContainer autoClose={1500} />
         <Component {...pageProps} />
         <Footer />
       </StoreProvider>
