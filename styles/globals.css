@@ -179,6 +179,11 @@ a {
   height: 80px;
 }
 
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #95a5a6 !important;
+}
+
 @media only screen and (max-width: 450px) {
   .category-image {
     height: 200px;

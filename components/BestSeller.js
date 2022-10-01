@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
+import "swiper/css/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -23,6 +24,8 @@ function BestSeller() {
           loop={true}
           slidesPerView={4}
           spaceBetween={10}
+          navigation={true}
+          modules={[Navigation]}
           className="flex justify-center"
         >
           {data.map((item, index) => {
