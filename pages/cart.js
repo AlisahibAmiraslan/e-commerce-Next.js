@@ -51,6 +51,9 @@ function Cart() {
                       <span className="mr-3 font-bold">Price:</span>
                       {item.price}$
                     </p>
+                    <Link href={"/product/" + item.id}>
+                      <a className="text-green-700 font-bold mt-2">Details</a>
+                    </Link>
                     <button
                       className="text-red-600 mt-3"
                       onClick={() => removeItem(item)}
