@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import Breadcrumb from "../Breadcrumb";
 import { toast } from "react-toastify";
-import { ProductContext } from "../../context/ProductContext";
 import { useRouter } from "next/router";
+import { Store } from "../../context/ProductContext";
 
 function ProductDetails({ Product }) {
   const Router = useRouter();
-  const { msg, setMsg } = useContext(ProductContext);
+
+  const { state, dispatch } = useContext(Store);
 
   const inputChangedHandler = (event) => {
     const updatedKeyword = event.target.value;
@@ -16,14 +17,21 @@ function ProductDetails({ Product }) {
   const ProTitle = Product.title;
   const ProCat = Product.category;
   const [Quantity, setQuantity] = useState(1);
-  //There isn't any stock in APİ, and for this react I used rate value
+  //There isn't any stock in APİ, and for this reason I used rate value
   const StockQuantity = Product.rating.rate;
 
-  function SebetEkle(value) {
-    fetch("https://fakestoreapi.com/products/" + value)
-      .then((res) => res.json())
-      .then((data) => setMsg([...msg, data]));
-  }
+  // function SebetEkle(value) {
+  //   fetch("https://fakestoreapi.com/products/" + value)
+  //     .then((res) => res.json())
+  //     .then((data) => setMsg([...msg, data]));
+  // }
+
+  const addToCartHandler = async () => {
+    const existItem = state.cart.cartItems.find((x) => x.id === Product.id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...Product, quantity } });
+  };
 
   return (
     <>
@@ -81,10 +89,7 @@ function ProductDetails({ Product }) {
               <div>
                 <button
                   className="bg-gray-800 px-5 py-2 text-white hover:bg-gray-600"
-                  onClick={() => {
-                    SebetEkle(Product.id);
-                    Router.push("/cart");
-                  }}
+                  onClick={addToCartHandler}
                 >
                   Add To Cart
                 </button>
