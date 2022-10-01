@@ -72,17 +72,25 @@ function Cart() {
       )}
       {cartItems.length > 0 && (
         <div className="mt-5 md:max-w-7xl w-full mx-auto">
-          <button
-            className="button-buy bg-green-500 hover:bg-green-300 text-white px-6 md:py-2 py-4 md:w-24 w-full"
-            onClick={() => {
-              toast("Purchased");
-              setTimeout(() => {
-                Router.reload(window.location.pathname);
-              }, 1500);
-            }}
-          >
-            Buy
-          </button>
+          <div className="md:w-72 w-full border flex justify-center items-center flex-col p-5">
+            <div className="pb-3 text-xl">
+              Subtotal ({cartItems.reduce((a, c) => a + c.Quantity, 0)}) : $
+              {cartItems
+                .reduce((a, c) => a + c.Quantity * c.price, 0)
+                .toFixed(2)}
+            </div>
+            <button
+              className="button-buy bg-green-500 hover:bg-green-300 text-white px-6 md:py-2 py-4 md:w-24 w-full"
+              onClick={() => {
+                toast("Purchased");
+                setTimeout(() => {
+                  Router.reload(window.location.pathname);
+                }, 1500);
+              }}
+            >
+              Buy
+            </button>
+          </div>
         </div>
       )}
     </>
