@@ -20,11 +20,15 @@ function ProductDetails({ Product }) {
   //There isn't any stock in APİ, and for this reason I used rate value
   const StockQuantity = Product.rating.rate;
 
+  // this way is add to basket product with api
+
   // function SebetEkle(value) {
   //   fetch("https://fakestoreapi.com/products/" + value)
   //     .then((res) => res.json())
   //     .then((data) => setMsg([...msg, data]));
   // }
+
+  // this way is add to basket product with context provider
 
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.id === Product.id);
