@@ -1,12 +1,9 @@
 import React, { useState, useContext } from "react";
 import Breadcrumb from "../Breadcrumb";
 import { toast } from "react-toastify";
-import { useRouter } from "next/router";
 import { Store } from "../../context/ProductContext";
 
 function ProductDetails({ Product }) {
-  const Router = useRouter();
-
   const { state, dispatch } = useContext(Store);
 
   const inputChangedHandler = (event) => {
@@ -32,9 +29,8 @@ function ProductDetails({ Product }) {
 
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.id === Product.id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-
-    dispatch({ type: "CART_ADD_ITEM", payload: { ...Product, quantity } });
+    setQuantity(existItem ? existItem.quantity + 1 : 1);
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...Product, Quantity } });
   };
 
   return (
