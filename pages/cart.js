@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { ProductContext, Store } from "../context/ProductContext";
 
@@ -8,6 +8,10 @@ function Cart() {
   // const { msg, setMsg } = useContext(ProductContext);
 
   const Router = useRouter();
+  const inputChangedHandler = (event) => {
+    const updatedKeyword = event.target.value;
+    // if we don't use this we see warning
+  };
 
   const { state, dispatch } = useContext(Store);
   const {
@@ -42,7 +46,6 @@ function Cart() {
                       <span className="mr-3 font-bold">Price:</span>
                       {item.price}$
                     </p>
-
                     <button
                       className="text-red-600 mt-3"
                       onClick={() => removeItem(item)}
