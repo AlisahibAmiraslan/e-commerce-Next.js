@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import { ProductContext, Store } from "../context/ProductContext";
 
 function Cart() {
   // const { msg, setMsg } = useContext(ProductContext);
+
+  const Router = useRouter();
 
   const { state } = useContext(Store);
   const {
@@ -50,6 +54,21 @@ function Cart() {
               Continue shopping
             </a>
           </Link>
+        </div>
+      )}
+      {cartItems.length > 0 && (
+        <div className="mt-5 md:max-w-7xl w-full mx-auto">
+          <button
+            className="button-buy bg-green-500 hover:bg-green-300 text-white px-6 py-2"
+            onClick={() => {
+              toast("Purchased");
+              setTimeout(() => {
+                Router.reload(window.location.pathname);
+              }, 1500);
+            }}
+          >
+            Buy
+          </button>
         </div>
       )}
     </>
