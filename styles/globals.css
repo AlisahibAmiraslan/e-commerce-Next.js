@@ -95,6 +95,18 @@
 .mobil-menu {
   background-color: #fff;
   z-index: 999;
+  animation: DownMenu ease;
+  animation-duration: 0.7s;
+}
+
+@keyframes DownMenu {
+  0% {
+    max-height: 0;
+  }
+
+  100% {
+    max-height: 800px;
+  }
 }
 
 .footer-menu ul li {
