@@ -6,6 +6,7 @@ import BannerMiddle from "./BannerMiddle";
 import CategoryProducts from "./Category/CategoryProducts";
 import ProductDetails from "./Product/ProductDetails";
 import BestSeller from "./BestSeller";
+import BannerTwo from "./BanneerTwo";
 
 export {
   Header,
@@ -16,4 +17,5 @@ export {
   CategoryProducts,
   ProductDetails,
   BestSeller,
+  BannerTwo,
 };

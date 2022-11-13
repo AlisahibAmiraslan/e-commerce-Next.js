@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaPinterest } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="w-full md:max-w-7xl md:px-0 px-5 m-auto">
+    <footer className="w-full px-10">
       <div className="grid md:grid-cols-4 grid-cols-2  py-10 footer-menu gap-y-10">
         <div>
           <ul>

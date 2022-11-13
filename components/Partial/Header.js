@@ -14,6 +14,7 @@ function Header() {
   const { cart } = state;
   const [progress, setProgress] = useState(false);
   const [progressLoading, setProgressLoading] = useState(false);
+  const [Search, setSearch] = useState("");
   // const { msg, setMsg } = useContext(ProductContext);
 
   Router.events.on("routeChangeStart", () => {
@@ -38,7 +39,7 @@ function Header() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories")
+    fetch("https://api.escuelajs.co/api/v1/categories")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -70,7 +71,7 @@ function Header() {
         )}
       </div>
       <nav className="w-full bg-white z-[100] h-auto">
-        <div className="flex justify-between items-center md:px-0 px-5 m-auto md:py-7 py-5 w-full md:max-w-7xl">
+        <div className="flex justify-between items-center md:px-0 px-5 m-auto py-2 w-full md:max-w-7xl">
           <div className="logo">
             <Link href="/">
               <a>
@@ -84,8 +85,8 @@ function Header() {
               {data.map((category, index) => {
                 return (
                   <li key={index}>
-                    <Link href={"/category/" + category}>
-                      <a>{category}</a>
+                    <Link href={"/category/" + category.id}>
+                      <a>{category.name}</a>
                     </Link>
                   </li>
                 );
@@ -95,6 +96,30 @@ function Header() {
 
           {/* icons */}
           <div className="icons flex items-center justify-center">
+            {/* ******search******** */}
+            <div className="mr-5 md:w-64 w-full md:block hidden">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSearch("");
+                  Router.push({
+                    pathname: "/search",
+                    query: {
+                      searchText: Search,
+                    },
+                  });
+                }}
+              >
+                <input
+                  value={Search}
+                  onChange={(e) =>
+                    setSearch(e.target.value.toLocaleLowerCase())
+                  }
+                  className="border w-full border-black bg-gray-100 py-1 px-5 rounded-lg"
+                />
+              </form>
+            </div>
+
             {/* shopping cart bag */}
             <div className="shopping-cart">
               <Link href="/cart">
@@ -167,19 +192,44 @@ function Header() {
         {/* for mobil */}
 
         {openMenu ? (
-          <div className="mobil-menu md:hidden block">
-            <ul>
-              {data.map((category, index) => {
-                return (
-                  <li key={index}>
-                    <Link href={"/category/" + category}>
-                      <a className="uppercase text-sm">{category}</a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <>
+            <div className="mobil-menu md:hidden block">
+              <ul>
+                {data.map((category, index) => {
+                  return (
+                    <li key={index}>
+                      <Link href={"/category/" + category}>
+                        <a className="uppercase text-sm">{category.name}</a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className="mr-5 w-full md:hidden block bg-gray-200 text-center border-t-2 border-gray-300 py-5 mb-5">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSearch("");
+                  Router.push({
+                    pathname: "/search",
+                    query: {
+                      searchText: Search,
+                    },
+                  });
+                }}
+              >
+                <input
+                  value={Search}
+                  onChange={(e) =>
+                    setSearch(e.target.value.toLocaleLowerCase())
+                  }
+                  className=" w-64 bg-white py-1 px-5"
+                />
+              </form>
+            </div>
+          </>
         ) : (
           ""
         )}

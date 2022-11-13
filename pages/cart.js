@@ -36,7 +36,7 @@ function Cart() {
               <div key={index} className="w-full md:max-w-7xl mx-auto">
                 <div className="w-full flex border mt-5 items-center md:flex-row flex-col">
                   <div className="cart-image md:mr-14 mr-0 md:my-0 my-10 flex justify-center items-center ml-3">
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.images[0]} alt={item.title} />
                   </div>
                   <div className="md:pl-0 pl-5">
                     <h1>

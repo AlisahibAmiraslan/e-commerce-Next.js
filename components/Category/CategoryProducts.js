@@ -2,17 +2,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import LazyLoad from "react-lazyload";
 import Breadcrumb from "../Breadcrumb";
+import NoImage from "./../../public/Images/no_image.png";
+import Image from "next/image";
 
 function CategoryProducts({ Categories }) {
   const Router = useRouter();
   const TitleName = Router.query.id;
-
   return (
     <section className="bg-white md:max-w-7xl w-full m-auto md:py-10 py-5">
       <Breadcrumb />
       <div className="w-full text-center">
         <h1 className="md:text-5xl text-3xl uppercase text-gray-600 underline">
-          {TitleName}
+          {Categories[0].category.name}
         </h1>
       </div>
 
@@ -25,7 +26,13 @@ function CategoryProducts({ Categories }) {
                   <div className="border">
                     <div className="category-image">
                       <LazyLoad>
-                        <img src={category.image} alt={category.title} />
+                        {category.images[0].includes("https") ? (
+                          <img src={category.images[0]} alt={category.title} />
+                        ) : (
+                          <div className="no_image">
+                            <Image src={NoImage} />
+                          </div>
+                        )}
                       </LazyLoad>
                     </div>
                     <div className="category-content text-center">

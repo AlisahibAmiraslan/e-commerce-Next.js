@@ -2,6 +2,15 @@ import React, { useState, useContext } from "react";
 import Breadcrumb from "../Breadcrumb";
 import { toast } from "react-toastify";
 import { Store } from "../../context/ProductContext";
+// swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import SwiperCore, { Navigation } from "swiper";
+SwiperCore.use([Navigation]);
+import "swiper/css/navigation";
+import NoImage from "./../../public/Images/no_image.png";
+import Image from "next/image";
 
 function ProductDetails({ Product }) {
   const { state, dispatch } = useContext(Store);
@@ -15,7 +24,7 @@ function ProductDetails({ Product }) {
   const ProCat = Product.category;
   const [Quantity, setQuantity] = useState(1);
   //There isn't any stock in APİ, and for this reason I used rate value
-  const StockQuantity = Product.rating.rate;
+  const StockQuantity = 5;
 
   // this way is add to basket product with api
 
@@ -37,10 +46,32 @@ function ProductDetails({ Product }) {
   return (
     <>
       <Breadcrumb title={ProTitle} proCat={ProCat} />
-      <section className="md:max-w-7xl w-full m-auto py-20">
+      <section className="md:max-w-7xl w-full m-auto md:py-10 py-5">
         <div className="grid md:grid-cols-2 grid-cols-1">
           <div className="product-image">
-            <img src={Product.image} alt="" />
+            <Swiper
+              loop={true}
+              slidesPerView={1}
+              className="flex justify-center"
+              navigation={true}
+              modules={[Navigation]}
+            >
+              {Product.images.map((img, index) => {
+                return (
+                  <>
+                    <SwiperSlide key={index}>
+                      {img.includes("https") ? (
+                        <img src={img} alt="" />
+                      ) : (
+                        <div className="no_image">
+                          <Image src={NoImage} />
+                        </div>
+                      )}
+                    </SwiperSlide>
+                  </>
+                );
+              })}
+            </Swiper>
           </div>
           <div className="product-details text-center">
             <div className="flex md:justify-around justify-center md:flex-row flex-col md:mt-0 mt-20">
@@ -76,7 +107,7 @@ function ProductDetails({ Product }) {
                   className="fill-current text-gray-400 w-4 cursor-pointer"
                   viewBox="0 0 448 512"
                   onClick={() => {
-                    if (Quantity > StockQuantity) {
+                    if (Quantity >= StockQuantity) {
                       toast("No More Product");
                     } else {
                       setQuantity(Quantity + 1);
@@ -89,7 +120,7 @@ function ProductDetails({ Product }) {
 
               <div>
                 <button
-                  className="bg-gray-800 px-5 py-2 text-white hover:bg-gray-600"
+                  className="bg-black rounded-lg px-5 py-2 text-white hover:bg-green-500 md:w-80 font-extrabold w-full add-cart"
                   onClick={() => {
                     addToCartHandler();
                     toast("Added to Bag");

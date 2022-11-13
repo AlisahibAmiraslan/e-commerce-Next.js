@@ -19,6 +19,11 @@
   background: #e74c3c;
 }
 
+footer {
+  background-color: black;
+  color: white;
+}
+
 .logo {
   max-width: 100px;
 }
@@ -37,11 +42,12 @@
   padding: 0;
 }
 .menu-lists a {
-  color: #405861;
+  color: #333;
   position: relative;
   letter-spacing: 1px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bolder;
 }
 .menu-lists a:before,
 .menu-lists a:after {
@@ -55,7 +61,7 @@
   height: 6px;
   width: 0%;
   content: "";
-  background-color: rgba(133, 163, 179, 0.21);
+  background-color: rgba(245, 0, 0, 0.21);
 }
 .menu-lists a:after {
   left: 0;
@@ -76,8 +82,12 @@
 }
 
 .mobil-menu ul {
-  background-color: #ecf0f1;
+  background-color: rgb(229, 231, 235);
   padding: 20px;
+}
+
+.add-cart {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .mobil-menu ul li a,
@@ -93,7 +103,7 @@
 }
 
 .mobil-menu {
-  background-color: #fff;
+  background-color: rgb(229, 231, 235);
   z-index: 999;
   animation: DownMenu ease;
   animation-duration: 0.7s;
@@ -184,6 +194,10 @@ a {
 .loading-circle {
   opacity: 1;
   visibility: visible;
+}
+
+.product-image {
+  user-select: none;
 }
 
 .cart-image {

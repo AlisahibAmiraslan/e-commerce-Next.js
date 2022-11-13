@@ -1,9 +1,20 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 
 function Breadcrumb({ title, proCat }) {
   const Router = useRouter();
-  const CatBreadCrumb = Router.query.id;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
+
+  let CategoryBreadCrumb = data?.filter((item) => item.id == Router.query.id);
 
   return (
     <>
@@ -14,12 +25,15 @@ function Breadcrumb({ title, proCat }) {
           </Link>
         </span>
         <span className="mx-2">/</span>
+
         {Router.pathname == "/category/[id]" ? (
-          <span className="text-gray-500 capitalize">{CatBreadCrumb}</span>
+          <span className="text-gray-500 capitalize">
+            {CategoryBreadCrumb[0]?.name}
+          </span>
         ) : (
           <span className="text-black hover:text-gray-500 capitalize">
-            <Link href={"/category/" + proCat}>
-              <a>{proCat}</a>
+            <Link href={"/category/" + proCat.id}>
+              <a>{proCat.name}</a>
             </Link>
           </span>
         )}

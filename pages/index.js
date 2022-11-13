@@ -1,5 +1,11 @@
 import React from "react";
-import { BannerTop, TopTen, BannerMiddle, BestSeller } from "../components";
+import {
+  BannerTop,
+  TopTen,
+  BannerMiddle,
+  BestSeller,
+  BannerTwo,
+} from "../components";
 import Head from "next/head";
 
 export default function Home() {
@@ -12,6 +18,7 @@ export default function Home() {
       <TopTen />
       <BannerMiddle />
       <BestSeller />
+      <BannerTwo />
     </>
   );
 }

@@ -7,7 +7,7 @@ function Products({ products }) {
 export const getServerSideProps = async ({ query }) => {
   let id = query.id;
 
-  const res = await fetch("https://fakestoreapi.com/products/" + id);
+  const res = await fetch("https://api.escuelajs.co/api/v1/products/" + id);
   const data = await res.json();
 
   return {

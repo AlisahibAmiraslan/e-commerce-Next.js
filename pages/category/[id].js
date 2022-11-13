@@ -10,10 +10,11 @@ const Category = ({ categories }) => {
 
 export const getServerSideProps = async ({ query }) => {
   let id = query.id;
+  const res = await fetch(
+    `https://api.escuelajs.co/api/v1/categories/${id}/products`
+  );
 
-  const res = await fetch("https://fakestoreapi.com/products/category/" + id);
   const data = await res.json();
-
   return {
     props: {
       categories: data,
