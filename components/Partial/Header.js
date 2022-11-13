@@ -198,7 +198,7 @@ function Header() {
                 {data.map((category, index) => {
                   return (
                     <li key={index}>
-                      <Link href={"/category/" + category}>
+                      <Link href={"/category/" + category.id}>
                         <a className="uppercase text-sm">{category.name}</a>
                       </Link>
                     </li>
