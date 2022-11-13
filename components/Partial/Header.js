@@ -5,6 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Logo from "./../../public/Images/logo.png";
 import Image from "next/image";
 import { ProductContext, Store } from "../../context/ProductContext";
+import { BsSearch } from "react-icons/bs";
 
 function Header() {
   const router = useRouter();
@@ -97,7 +98,7 @@ function Header() {
           {/* icons */}
           <div className="icons flex items-center justify-center">
             {/* ******search******** */}
-            <div className="mr-5 md:w-64 w-full md:block hidden">
+            <div className="mr-5 md:w-64 w-full md:block hidden relative">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -116,7 +117,11 @@ function Header() {
                     setSearch(e.target.value.toLocaleLowerCase())
                   }
                   className="border w-full border-black bg-gray-100 py-1 px-5 rounded-lg"
+                  placeholder="Search.."
                 />
+                <button type="submit" className="absolute right-5 top-2">
+                  <BsSearch />
+                </button>
               </form>
             </div>
 
@@ -207,7 +212,7 @@ function Header() {
               </ul>
             </div>
 
-            <div className="mr-5 w-full md:hidden block bg-gray-200 text-center border-t-2 border-gray-300 py-5 mb-5">
+            <div className="mr-5 w-full md:hidden block bg-gray-200 text-center border-t-2 border-gray-300 py-5 mb-5 relative">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -227,6 +232,9 @@ function Header() {
                   }
                   className=" w-64 bg-white py-1 px-5"
                 />
+                <button type="submit" className="absolute right-16 top-7">
+                  <BsSearch />
+                </button>
               </form>
             </div>
           </>
