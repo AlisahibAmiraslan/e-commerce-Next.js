@@ -4,6 +4,8 @@ import LazyLoad from "react-lazyload";
 import Breadcrumb from "../Breadcrumb";
 import NoImage from "./../../public/Images/no_image.png";
 import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function CategoryProducts({ Categories }) {
   const Router = useRouter();
@@ -25,15 +27,17 @@ function CategoryProducts({ Categories }) {
                 <a>
                   <div className="border">
                     <div className="category-image">
-                      <LazyLoad>
-                        {category.images[0].includes("https") ? (
-                          <img src={category.images[0]} alt={category.title} />
-                        ) : (
-                          <div className="no_image">
-                            <Image src={NoImage} />
-                          </div>
-                        )}
-                      </LazyLoad>
+                      {category.images[0].includes("https") ? (
+                        <LazyLoadImage
+                          effect="blur"
+                          src={category.images[0]}
+                          alt={category.title}
+                        />
+                      ) : (
+                        <div className="no_image">
+                          <Image src={NoImage} />
+                        </div>
+                      )}
                     </div>
                     <div className="category-content text-center">
                       <h2 className="title">

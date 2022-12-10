@@ -9,6 +9,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import NoImage from "./../public/Images/no_image.png";
 import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function TopTen() {
   const [data, setData] = useState([]);
@@ -39,7 +41,11 @@ function TopTen() {
                         <div className="banner-top-content">
                           <div className="banner-top-img">
                             {item.images[0].includes("https") ? (
-                              <img src={item.images[0]} alt={item.title} />
+                              <LazyLoadImage
+                                effect="blur"
+                                src={item.images[0]}
+                                alt={item.title}
+                              />
                             ) : (
                               <div className="no_image">
                                 <Image src={NoImage} />
