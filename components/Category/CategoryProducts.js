@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import LazyLoad from "react-lazyload";
@@ -8,8 +9,21 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 function CategoryProducts({ Categories }) {
+  const [More, setMore] = useState(8);
   const Router = useRouter();
+
+  const loadProducts = () => {
+    setMore(More + 8);
+  };
+
+  useEffect(() => {
+    setMore(8);
+  }, [Router]);
+
   const TitleName = Router.query.id;
+
+  const CategorySlice = Categories.slice(0, More);
+
   return (
     <section className="bg-white md:max-w-7xl w-full m-auto md:py-10 py-5">
       <Breadcrumb />
@@ -20,7 +34,7 @@ function CategoryProducts({ Categories }) {
       </div>
 
       <div className="grid md:grid-cols-4 grid-cols-2 gap-2 py-10">
-        {Categories.map((category, index) => {
+        {CategorySlice.map((category, index) => {
           return (
             <>
               <Link href={"/product/" + category.id} key={index}>
@@ -54,6 +68,18 @@ function CategoryProducts({ Categories }) {
           );
         })}
       </div>
+      {CategorySlice.length >= Categories.length ? (
+        ""
+      ) : (
+        <div className="w-full text-center">
+          <button
+            className="border-b border-black"
+            onClick={() => loadProducts()}
+          >
+            See More Products
+          </button>
+        </div>
+      )}
     </section>
   );
 }
