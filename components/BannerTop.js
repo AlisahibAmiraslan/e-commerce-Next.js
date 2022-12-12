@@ -3,39 +3,49 @@ import { useEffect, useState } from "react";
 import LazyLoad from "react-lazyload";
 
 function BannerTop() {
-  const [data, setData] = useState([]);
+	const [data, setData] = useState([]);
+	const [Blur, setBlur] = useState("blur-lg");
 
-  useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/categories")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  }, []);
+	useEffect(() => {
+		fetch("https://api.escuelajs.co/api/v1/categories")
+			.then((res) => res.json())
+			.then((data) => {
+				setBlur("");
+				setData(data);
+			});
+	}, []);
 
-  return (
-    <div className="w-full md:max-w-7xl m-auto md:px-0 px-5">
-      <div className="banner-top-image w-full md:block hidden">
-        <Link href={"/category/" + data[0]?.id}>
-          <a>
-            <LazyLoad>
-              <img src="Images/banner-top.png" alt="New Season" />
-            </LazyLoad>
-          </a>
-        </Link>
-      </div>
+	return (
+		<div className="w-full md:max-w-7xl m-auto md:px-0 px-5">
+			<div className="banner-top-image w-full md:block hidden">
+				<Link href={"/category/" + data[0]?.id}>
+					<a>
+						<LazyLoad>
+							<img
+								src="Images/banner-top.png"
+								alt="New Season"
+								className={Blur}
+							/>
+						</LazyLoad>
+					</a>
+				</Link>
+			</div>
 
-      <div className="banner-top-image w-full md:hidden block">
-        <Link href={"/category/" + data[0]?.id}>
-          <a>
-            <LazyLoad>
-              <img src="Images/banner-top-mobil.png" alt="New Season" />
-            </LazyLoad>
-          </a>
-        </Link>
-      </div>
-    </div>
-  );
+			<div className="banner-top-image w-full md:hidden block">
+				<Link href={"/category/" + data[0]?.id}>
+					<a>
+						<LazyLoad>
+							<img
+								src="Images/banner-top-mobil.png"
+								alt="New Season"
+								className={Blur}
+							/>
+						</LazyLoad>
+					</a>
+				</Link>
+			</div>
+		</div>
+	);
 }
 
 export default BannerTop;
