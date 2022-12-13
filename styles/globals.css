@@ -233,6 +233,7 @@ a {
 }
 
 .banner-top-img {
+	height: 450px;
 	background: url("/Images/blur.png");
 }
 
