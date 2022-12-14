@@ -11,8 +11,11 @@ SwiperCore.use([Navigation]);
 import "swiper/css/navigation";
 import NoImage from "./../../public/Images/no_image.png";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 function ProductDetails({ Product }) {
+  const Router = useRouter();
+
   const { state, dispatch } = useContext(Store);
 
   const inputChangedHandler = (event) => {
@@ -41,6 +44,17 @@ function ProductDetails({ Product }) {
     setQuantity(existItem ? existItem.Quantity + 1 : 1);
     dispatch({ type: "CART_ADD_ITEM", payload: { ...Product, Quantity } });
     setQuantity(1);
+    Router.push(
+      {
+        pathname: Router.pathname,
+        query: {
+          id: Router.query.id,
+          ok: 1,
+        },
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   return (
