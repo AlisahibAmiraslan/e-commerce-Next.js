@@ -157,7 +157,7 @@ function Header() {
 							</a>
 							{IsOpen ? (
 								<>
-									<div className="absolute bg-gray-500 shadow-3xl p-3 text-white w-96 md:right-0 -right-14 total-cart rounded-lg top-9">
+									<div className="absolute bg-gray-500 shadow-3xl md:p-3 p-10 text-white w-96 md:right-0 -right-16 total-cart rounded-lg top-9">
 										<button
 											onClick={closeModal}
 											className="cursor-pointer underline relative right-0 w-full"
