@@ -306,7 +306,7 @@ a {
 
 	.top-ten-mobil img {
 		width: 100%;
-		height: 200px;
+		height: 150px;
 	}
 
 	.search-image {
@@ -318,11 +318,11 @@ a {
 		height: 200px;
 	}
 	.top-ten-mobil {
-		height: 250px;
+		height: 300px;
 	}
 
 	.banner-top-img {
-		height: 250px;
+		height: 200px;
 		background: url("/Images/blur.png");
 	}
 
