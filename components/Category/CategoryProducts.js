@@ -42,14 +42,21 @@ function CategoryProducts({ Categories }) {
 									<div className="border">
 										<div className="category-image">
 											{category.images[0].includes("https") ? (
-												<LazyLoadImage
-													effect="blur"
-													src={category.images[0]}
-													alt={category.title}
-												/>
+												<LazyLoad>
+													<Image
+														placeholder="blur"
+														blurDataURL="https://cdn.myikas.com/images/6d452771-fa42-482d-a9a5-b47e65a5bf47/1584c545-2604-4edf-b183-4e8b0454e2c3/image_10.webp"
+														width="350"
+														height="350"
+														src={category.images[0]}
+														alt={category.title}
+													/>
+												</LazyLoad>
 											) : (
 												<div className="no_image">
-													<Image src={NoImage} />
+													<LazyLoad>
+														<Image src={NoImage} />
+													</LazyLoad>
 												</div>
 											)}
 										</div>

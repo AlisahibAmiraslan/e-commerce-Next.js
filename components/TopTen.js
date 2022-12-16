@@ -43,7 +43,14 @@ function TopTen() {
 												<div className="banner-top-content">
 													<div className="banner-top-img banner-slider">
 														{item.images[0].includes("https") ? (
-															<img src={item.images[0]} alt={item.title} />
+															<Image
+																placeholder="blur"
+																width="450"
+																height="400"
+																blurDataURL="https://cdn.myikas.com/images/6d452771-fa42-482d-a9a5-b47e65a5bf47/1584c545-2604-4edf-b183-4e8b0454e2c3/image_10.webp"
+																src={item.images[0]}
+																alt={item.title}
+															/>
 														) : (
 															<div className="no_image">
 																<Image src={NoImage} />
@@ -86,7 +93,14 @@ function TopTen() {
 												<div className="banner-top-content">
 													<div className="banner-top-img">
 														{item.images[0].includes("https") ? (
-															<img src={item.images[0]} alt={item.title} />
+															<Image
+																placeholder="blur"
+																width="450"
+																height="400"
+																blurDataURL="https://cdn.myikas.com/images/6d452771-fa42-482d-a9a5-b47e65a5bf47/1584c545-2604-4edf-b183-4e8b0454e2c3/image_10.webp"
+																src={item.images[0]}
+																alt={item.title}
+															/>
 														) : (
 															<div className="no_image">
 																<Image src={NoImage} />

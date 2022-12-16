@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import LazyLoad from "react-lazyload";
 
 function Search({ Data }) {
 	const Router = useRouter();
@@ -34,14 +35,21 @@ function Search({ Data }) {
 									<div key={index}>
 										<div className="search-image">
 											{searchData.images[0].includes("https") ? (
-												<LazyLoadImage
-													effect="blur"
-													src={searchData.images[0]}
-													alt={searchData.title}
-												/>
+												<LazyLoad>
+													<Image
+														placeholder="blur"
+														width="350"
+														height="350"
+														blurDataURL="https://cdn.myikas.com/images/6d452771-fa42-482d-a9a5-b47e65a5bf47/1584c545-2604-4edf-b183-4e8b0454e2c3/image_10.webp"
+														src={searchData.images[0]}
+														alt={searchData.title}
+													/>
+												</LazyLoad>
 											) : (
 												<div className="no_image">
-													<Image src={NoImage} />
+													<LazyLoad>
+														<Image src={NoImage} />
+													</LazyLoad>
 												</div>
 											)}
 										</div>
