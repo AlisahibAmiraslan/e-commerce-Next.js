@@ -22,7 +22,7 @@ function BestSeller() {
 	return (
 		<>
 			<div className="w-full md:max-w-7xl m-auto md:px-0 px-5 my-20 md:block hidden top-ten">
-				<Swiper
+				{/* <Swiper
 					loop={true}
 					slidesPerView={3}
 					spaceBetween={10}
@@ -118,7 +118,7 @@ function BestSeller() {
 							);
 						}
 					})}
-				</Swiper>
+				</Swiper> */}
 			</div>
 		</>
 	);
