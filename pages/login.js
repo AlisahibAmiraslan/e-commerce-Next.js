@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Config/Config";
+import { auth } from "../config/Config";
 import { useRouter } from "next/router";
 
 const Login = () => {
