@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { auth } from "../config/Config";
+import { auth } from "../Config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "next/router";
 
