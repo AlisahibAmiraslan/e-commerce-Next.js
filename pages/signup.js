@@ -89,7 +89,7 @@ const Signup = () => {
             <br />
             <br />
             <span>
-              Do You have an account? Login
+              Do You have already an account? Login
               <Link href="/login">
                 <a className="underline">Here</a>
               </Link>
