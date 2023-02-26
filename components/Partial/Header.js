@@ -5,7 +5,7 @@ import Logo from "./../../public/Images/logo.png";
 import Image from "next/image";
 import { ProductContext, Store } from "../../context/ProductContext";
 import { BsSearch } from "react-icons/bs";
-import { auth } from "../Config";
+import { auth } from "../../config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 
