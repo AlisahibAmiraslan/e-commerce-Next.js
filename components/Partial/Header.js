@@ -84,7 +84,7 @@ function Header() {
               </a>
             </Link>
           </div>
-          {/* big sizes */}
+          {/* big size */}
           <div className="menu lg:flex hidden">
             <ul className="menu-lists">
               {data.map((category, index) => {
