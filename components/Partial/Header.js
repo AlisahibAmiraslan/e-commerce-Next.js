@@ -17,6 +17,7 @@ function Header() {
   const [Search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [cartItemsCount, setCartItemsCount] = useState(0);
+
   // const { msg, setMsg } = useContext(ProductContext);
 
   Router.events.on("routeChangeStart", () => {
