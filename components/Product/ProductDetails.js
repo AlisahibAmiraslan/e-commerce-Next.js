@@ -72,17 +72,15 @@ function ProductDetails({ Product }) {
             >
               {Product.images.map((img, index) => {
                 return (
-                  <>
-                    <SwiperSlide key={index}>
-                      {img.includes("https") ? (
-                        <img src={img} alt="" />
-                      ) : (
-                        <div className="no_image">
-                          <Image src={NoImage} />
-                        </div>
-                      )}
-                    </SwiperSlide>
-                  </>
+                  <SwiperSlide key={index}>
+                    {img.includes("https") ? (
+                      <img src={img} alt="image" />
+                    ) : (
+                      <div className="no_image">
+                        <Image src={NoImage} alt="no image" />
+                      </div>
+                    )}
+                  </SwiperSlide>
                 );
               })}
             </Swiper>

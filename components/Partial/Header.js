@@ -86,7 +86,7 @@ function Header() {
           <div className="menu lg:flex hidden">
             <ul className="menu-lists">
               {data.map((category, index) => {
-                if (index < 6) {
+                if (index < 5) {
                   return (
                     <li key={index}>
                       <Link href={"/category/" + category.id}>

@@ -32,38 +32,36 @@ function Cart() {
       {cartItems.length > 0 ? (
         cartItems.map((item, index) => {
           return (
-            <>
-              <div key={index} className="w-full md:max-w-7xl mx-auto">
-                <div className="w-full flex border mt-5 items-center md:flex-row flex-col">
-                  <div className="cart-image md:mr-14 mr-0 md:my-0 my-10 flex justify-center items-center ml-3">
-                    <img src={item.images[0]} alt={item.title} />
-                  </div>
-                  <div className="md:pl-0 pl-5">
-                    <h1>
-                      <span className="mr-3 font-bold">Product Name:</span>
-                      {item.title}
-                    </h1>
-                    <span>
-                      <span className="mr-3 font-bold">Quantity:</span>
-                      {item.Quantity}
-                    </span>
-                    <p>
-                      <span className="mr-3 font-bold">Price:</span>
-                      {item.price}$
-                    </p>
-                    <Link href={"/product/" + item.id}>
-                      <a className="text-green-700 font-bold mt-2">Details</a>
-                    </Link>
-                    <button
-                      className="text-red-600 mt-3"
-                      onClick={() => removeItem(item)}
-                    >
-                      Remove
-                    </button>
-                  </div>
+            <div key={index} className="w-full md:max-w-7xl mx-auto">
+              <div className="w-full flex border mt-5 items-center md:flex-row flex-col">
+                <div className="cart-image md:mr-14 mr-0 md:my-0 my-10 flex justify-center items-center ml-3">
+                  <img src={item.images[0]} alt={item.title} />
+                </div>
+                <div className="md:pl-0 pl-5">
+                  <h1>
+                    <span className="mr-3 font-bold">Product Name:</span>
+                    {item.title}
+                  </h1>
+                  <span>
+                    <span className="mr-3 font-bold">Quantity:</span>
+                    {item.Quantity}
+                  </span>
+                  <p>
+                    <span className="mr-3 font-bold">Price:</span>
+                    {item.price}$
+                  </p>
+                  <Link href={"/product/" + item.id}>
+                    <a className="text-green-700 font-bold mt-2">Details</a>
+                  </Link>
+                  <button
+                    className="text-red-600 mt-3"
+                    onClick={() => removeItem(item)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
-            </>
+            </div>
           );
         })
       ) : (

@@ -7,6 +7,7 @@ module.exports = {
       "cdna.artstation.com",
       "e0.pxfuel.com",
       "api.escuelajs.co",
+      "i.imgur.com",
     ],
   },
 };
